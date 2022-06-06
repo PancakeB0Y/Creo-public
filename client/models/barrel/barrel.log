@@ -1,0 +1,31 @@
+Exporter version: 6.4.5, Blender version: 2.90.1
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  C:\Users\Niki\Desktop\Blender Stuff\Props\barrel\
+	Python World class constructor completed
+	processing begun of mesh:  Barrel_Clo
+		processing begun of material:  Wood_1
+		processing begun of material:  Wood_2
+		processing begun of multimaterial:  barrel.Multimaterial#0
+		num positions      :  500
+		num normals        :  500
+		num tangents       :  0
+		num uvs            :  1000
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  192
+	processing begun of camera (UniversalCamera):  Camera
+	processing begun of light (POINT):  Lamp
+========= Writing of JSON file started =========
+	writing mesh:  Barrel_Clo
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 0.025 secs

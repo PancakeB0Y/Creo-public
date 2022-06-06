@@ -1,0 +1,36 @@
+Exporter version: 6.4.5, Blender version: 2.90.1
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  C:\Users\Niki\Desktop\Blender Stuff\Robot\
+	Python World class constructor completed
+	processing begun of camera (UniversalCamera):  Camera
+	processing begun of mesh:  Cube.004
+		processing begun of material:  antenna
+		processing begun of material:  Material
+		processing begun of material:  base
+		processing begun of material:  jet
+		processing begun of material:  Material.003
+		processing begun of material:  outer eye
+		processing begun of multimaterial:  robot.Multimaterial#0
+		num positions      :  1508
+		num normals        :  1508
+		num tangents       :  0
+		num uvs            :  3016
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  668
+		WARNING: # of 0 area faces found:  144
+	processing begun of light (POINT):  Light
+========= Writing of JSON file started =========
+	writing mesh:  Cube.004
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 0.0608 secs

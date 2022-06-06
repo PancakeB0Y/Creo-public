@@ -1,0 +1,3149 @@
+@font-face {
+  font-family: "Main Regular";
+  src: url('./fonts/Fredoka/static/Fredoka/Fredoka-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Main Bold";
+  src: url('./fonts/Fredoka/static/Fredoka/Fredoka-Bold.ttf');
+}
+
+@font-face {
+  font-family: "Main Medium";
+  src: url('./fonts/Fredoka/static/Fredoka/Fredoka-Medium.ttf');
+}
+
+@font-face {
+  font-family: "Main Light";
+  src: url('./fonts/Fredoka/static/Fredoka/Fredoka-Light.ttf');
+}
+
+@font-face {
+  font-family: "Main SemiBold";
+  src: url('./fonts/Fredoka/static/Fredoka/Fredoka-Bold.ttf');
+}
+
+body {
+  background: #9153f4;
+  background-image: url('./img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0px !important;
+  width: 100%;
+  height: 100vh;
+}
+
+*::-webkit-scrollbar {
+  width: 1em;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(145, 83, 244, 1);
+  -webkit-box-shadow: inset 0 0 6px rgba(87, 39, 163, 1);
+  border-radius: 10px;
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
+
+p {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
+/* CSS for the auth pages */
+.auth-page {
+  width: 100%;
+  height: 100%;
+  margin: 0px im !important;
+}
+
+.auth-page-centered-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-box {
+  background-color: white;
+  border-radius: 4px;
+  padding: 2rem;
+  box-shadow: 3px 3px 3px #666;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 300px;
+  box-shadow: 3px 3px 6px rgb(87, 39, 163); /* #777;*/
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 10px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.modal-box .modal-action-button:first-of-type {
+  margin-top: 0px;
+}
+.auth-page-modal-title {
+  font-size: 2.5rem;
+  color: white;
+  font-family: "Main Bold", sans-serif;
+  font-weight: 700;
+  align-self: center;
+}
+.auth-page-modal-container {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  flex-direction: column;
+  align-self: left;
+  margin-bottom: 1rem;
+  margin: 2rem 0rem;
+  width: 300px;
+}
+.auth-page-modal-container-title {
+  font-family: "Main Medium", sans-serif;
+  font-size: 1rem;
+  color: #d6c5f0;
+  font-weight: 400;
+  line-height: 1;
+  margin-top: 1.75rem;
+  margin-bottom: 0.4rem;
+}
+.auth-page-modal-container-title:first-of-type {
+  margin-top: 0px;
+}
+.auth-page-modal-container-input {
+  background-color: white;
+  border: 1px solid rgb(87, 39, 163);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 400;
+  color: black;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+.modal-action-button {
+  width: 100%;
+  height: 50px;
+  margin-top: 1rem;
+  background-color: #5727a3;
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+  cursor: pointer;
+}
+.main-menu .modal-action-button {
+  -webkit-box-shadow: 0px 0px 8px 2px #9153f4; 
+  box-shadow: 0px 0px 8px 2px #9153f4;
+}
+.auth-page-modal-action-button-switch {
+  min-width: 100px;
+  width: fit-content;
+  height: 50px;
+  margin-top: 0.5rem;
+  background-color: transparent;
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: #d6c5f0;
+  align-self: center;
+  outline: none;
+  cursor: pointer;
+}
+.auth-page-modal-action-button:hover {
+  cursor: pointer;
+}
+.auth-page-modal-button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.cta {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px 45px;
+    text-decoration: none;
+    font-family: 'Main SemiBold', sans-serif;
+    font-size: 24px;
+    color: white;
+    background: #6225E6;
+    transition: 1s;
+    box-shadow: 6px 6px 0 black;
+    transform: skewX(-15deg);
+    width: 100%;
+}
+
+.cta:focus {
+   outline: none; 
+}
+
+.cta:hover {
+    transition: 0.5s;
+    box-shadow: 10px 10px 0 #FBC638;
+}
+
+.cta span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 0px;
+}
+
+.cta:hover  span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 45px;
+}
+
+  span {
+    transform: skewX(15deg) 
+  }
+
+  span:nth-child(2) {
+    width: 20px;
+    margin-left: 30px;
+    position: relative;
+    top: 12%;
+  }
+  
+/**************SVG****************/
+
+path.one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+
+path.two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+
+.cta:hover path.three {
+    animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover path.one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover path.two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+
+@keyframes color_anim {
+    0% {
+        fill: white;
+    }
+    50% {
+        fill: #FBC638;
+    }
+    100% {
+        fill: white;
+    }
+}
+
+/* CSS for the Main Regular menu */
+.main-menu {
+  width: 100%;
+  height: 100%;
+  margin: 0px im !important;
+}
+.main-menu-centered-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-menu-modal-action-button {
+  min-width: 100px;
+  width: fit-content;
+  height: 50px;
+  margin-top: 1.2rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+}
+
+/* CSS for the mapNameChoose div */
+#mapNameChoose {
+  width: 100%;
+  height: 100%;
+  margin: 0px im !important;
+  overflow-y: hidden;
+}
+#mapNameChoose .centered-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#mapNameChoose .modal-action-button {
+  min-width: 100px;
+  margin-left: 0.6rem;
+  width: fit-content;
+  height: 50px;
+  margin-top: 1rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+}
+#mapNameChoose .modal-container {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  flex-direction: column;
+  align-self: left;
+  margin-bottom: 1rem;
+}
+#mapNameChoose .modal-container-title {
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: #262626;
+  font-weight: 400;
+  line-height: 1;
+}
+#mapNameChoose .modal-container-input {
+  background-color: white;
+  border: 1px solid rgb(87, 39, 163);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 400;
+  color: black;
+  width: calc(100% - 1.25rem);
+  outline: none;
+}
+
+/* CSS for map-edit-div */
+.map-edit-div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.map-edit-div canvas {
+  width: 100%;
+  height: 100%;
+}
+.map-edit-div canvas:focus {
+  outline: 0 !important;
+}
+.map-edit-div .tool-holder {
+  width: 25%;
+  box-sizing: border-box;
+  display: flex;
+  /* position: relative; */
+  flex-direction: column;
+  background: rgb(87, 39, 163);
+  overflow-x: auto;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+}
+.map-edit-div .canvas-holder {
+  width: 75%;
+  height: 100%;
+  box-sizing: border-box;
+  /* position: relative; */
+}
+.map-edit-div #canvasPopupHolder {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
+}
+.map-edit-div #canvasPopup {
+  padding: 0.2rem;
+  background: rgb(87, 39, 163);
+  border: 0.2rem solid #d6c5f0;
+  border-radius: 10px;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: white;
+  margin-left: 2rem;
+}
+.map-edit-div #canvasPopupName {
+  align-self: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.map-edit-div #canvasPopupCloseButton {
+  position: flex !important;
+  flex-direction: row;
+  width: min-content !important;
+  height: fit-content;
+  padding: 0.1rem !important;
+  margin: 0.2rem !important;
+}
+.map-edit-div #canvasBarPopup {
+  padding: 0.2rem;
+  background: rgb(87, 39, 163);
+  border: 0.2rem solid #d6c5f0;
+  border-radius: 10px;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: black;
+  height: 1.5rem;
+  width: 20%;
+  min-width: 10rem;
+  position: relative;
+}
+.map-edit-div #canvasBarPopupValue{
+  background-color: white;
+  box-sizing: border-box;
+  /* border: 0.2rem solid white; */
+  border-radius: 3px;
+  width: 80%;
+  height: 100%;
+}
+.map-edit-div #canvasBarPopupTextHolder{
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.map-edit-div #canvasBarPopupText{
+  margin-top: 5%;
+}
+.map-edit-div #canvasValuePopup {
+  padding: 0.2rem;
+  background: rgb(87, 39, 163);
+  border: 0.2rem solid #d6c5f0;
+  border-radius: 10px;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: white;
+  margin-left: 2rem;
+}
+.map-edit-div .side-section-title {
+  text-align: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+}
+.map-edit-div .side-section-content-item:first-of-type {
+  border-top: 1px solid #d6c5f0;
+}
+.map-edit-div .side-section-content-item {
+  border-bottom: 1px solid #d6c5f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 1rem 0.5rem;
+}
+.map-edit-div .side-section-content-item:last-of-type {
+  border-bottom: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  padding: 1rem 0.5rem;
+}
+.map-edit-div .side-section-content-item-title {
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+}
+.map-edit-div .side-section-content-item-input {
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.9rem;
+  color: black;
+  background-color: white;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #d6c5f0;
+  border-radius: 3px;
+  width: min-content;
+}
+.map-edit-div .side-section-content-item-section-title {
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.9rem;
+  color: #fafafa;
+  font-weight: 400;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+.map-edit-div .side-section-content-item-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin: 1rem 0rem;
+}
+.map-edit-div .text-normal {
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.9rem;
+  color: #e7e7e7;
+  font-weight: 400;
+}
+.map-edit-div .overlapping-margin-top {
+  line-height: 1;
+  margin-top: -1rem;
+}
+.map-edit-div input[type="range"] {
+  width: min-content;
+  -webkit-appearance: none;
+  background-color: #1b0044;
+  border: 0px !important;
+  margin: 0.5rem 0rem;
+}
+.map-edit-div input[type="range"]:hover {
+  cursor: pointer;
+}
+.map-edit-div input[type="range"]:focus {
+  outline: none;
+}
+.map-edit-div input[type="range"]::-webkit-slider-runnable-track {
+  height: 15px;
+  -webkit-appearance: none;
+  color: #d6c5f0;
+  margin-top: -1px;
+  border-radius: 100%;
+}
+.map-edit-div input[type="range"]::-webkit-slider-thumb {
+  width: 15px;
+  -webkit-appearance: none;
+  height: 15px;
+  cursor: ew-resize;
+  background: #d6c5f0;
+  border-radius: 100%;
+}
+.map-edit-div .inline-section {
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+  align-items: center;
+}
+.map-edit-div input[type="checkbox"] {
+  position: relative;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+.map-edit-div input[type="checkbox"]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  top: 0;
+  left: 0;
+  border: 2px solid #555555;
+  border-radius: 3px;
+  background-color: white;
+}
+.map-edit-div input[type="checkbox"]:checked:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 6px;
+}
+.map-edit-div .modal-action-button {
+  min-width: 100px;
+  width: fit-content;
+  height: 50px;
+  margin-top: 1rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+}
+
+.map-edit-div #toolButtons {
+  border-bottom: none;
+  display: inline-block;
+  padding: 1rem 0.2rem;
+}
+
+.map-edit-div #toolButtons > * {
+  margin: 0.5rem !important;
+}
+
+.map-edit-div #mapEditBackButton {
+  position: absolute;
+  top: 1rem;
+  left: 0.6rem;
+  z-index: 999999;
+}
+.map-edit-div .modal-action-button:last-of-type {
+  margin-left: 1rem;
+}
+.map-edit-div .modal-container-input {
+  background-color: white;
+  border: 1px solid rgb(87, 39, 163);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 400;
+  color: black;
+  min-width: 3rem;
+  width: fit-content;
+  outline: none;
+}
+
+.map-edit-div #changeVariableTool table,
+tr,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid white;
+  box-sizing: border-box;
+}
+
+.map-edit-div #changeVariableTool table {
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  width: 100%;
+}
+
+.map-edit-div #changeVariableTool tr {
+  text-align: center;
+  border: 2px solid white;
+}
+
+.map-edit-div #changeVariableTool td {
+  width: 30%;
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopup {
+  display: flex;
+  position: absolute;
+  left: 25%;
+  top: 0%;
+  flex-direction: column;
+  width: 75%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  overflow-y: auto;
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupCloseButton {
+  position: absolute;
+  left: 0.8rem;
+  top: 0.5rem;
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupTableHolder {
+  margin-top: 10rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupTableHolder input {
+  background: none;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupTableHolder select {
+  background: none;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupTableHolder select option {
+  background-color: rgba(145, 83, 244, 1);
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupAddVarableDiv {
+  display: flex;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  vertical-align: middle;
+  align-content: center;
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupAddVarableDivContentHolder {
+  align-self: center;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupAddVarableDivContentHolder {
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: right;
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupTableHolder td {
+  width: 20%;
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupTableHolder td button {
+  height: 1.2rem;
+  width: 100%;
+  margin: 0%;
+}
+
+.map-edit-div
+  #changeVariableToolChangeVariablePopupAddVarableDivContentHolder
+  label {
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  align-self: left;
+}
+
+.map-edit-div
+  #changeVariableToolChangeVariablePopupAddVarableDivContentHolder
+  input {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
+.map-edit-div
+  #changeVariableToolChangeVariablePopupAddVarableDivContentHolder
+  select {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  align-self: left;
+}
+
+.map-edit-div
+  #changeVariableToolChangeVariablePopupAddVarableDivContentHolder
+  select
+  option {
+  background-color: rgba(145, 83, 244, 1);
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupAddVarableDivAddButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div #changeVariableToolChangeVariablePopupAddVarableDivCloseButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div #changeVariableToolChangeVariableSaveButton {
+  margin-left: 0rem;
+}
+
+/*edit events css*/
+.map-edit-div #editEventsTool table,
+tr,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid white;
+  box-sizing: border-box;
+}
+
+.map-edit-div #editEventsTool table {
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  width: 100%;
+}
+
+.map-edit-div #editEventsTool tr {
+  text-align: center;
+  border: 2px solid white;
+}
+
+.map-edit-div #editEventsTool td {
+  width: 30%;
+}
+
+.map-edit-div #editEventsToolEditEventsPopup {
+  display: flex;
+  position: absolute;
+  left: 25%;
+  top: 0%;
+  flex-direction: column;
+  width: 75%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  overflow-y: auto;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupCloseButton {
+  position: absolute;
+  left: 0.8rem;
+  top: 0.5rem;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupTableHolder {
+  margin-top: 10rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupTableHolder input {
+  background: none;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupTableHolder select {
+  background: none;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupTableHolder select option {
+  background-color: rgba(145, 83, 244, 1);
+}
+
+.map-edit-div #editEventsToolEditEventsPopupAddVarableDiv {
+  display: flex;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  vertical-align: middle;
+  align-content: center;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupAddVarableDivContentHolder {
+  align-self: center;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupAddVarableDivContentHolder {
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: right;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupTableHolder td {
+  width: 20%;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupTableHolder td button {
+  height: 1.2rem;
+  width: 100%;
+  margin: 0%;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupAddVarableDivContentHolder label {
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  align-self: left;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupAddVarableDivContentHolder input {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupAddVarableDivContentHolder select {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  align-self: left;
+}
+
+.map-edit-div
+  #editEventsToolEditEventsPopupAddVarableDivContentHolder
+  select
+  option {
+  background-color: rgba(145, 83, 244, 1);
+}
+
+.map-edit-div #editEventsToolEditEventsPopupAddVarableDivAddButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div #editEventsToolEditEventsPopupAddVarableDivCloseButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div #editEventsToolEditEventsSaveButton {
+  margin-left: 0rem;
+}
+
+.map-edit-div #editEventsToolEditEventsConditionPopupDiv {
+  display: flex;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  overflow-y: auto;
+}
+
+.map-edit-div
+  #editEventsToolEditEventsConditionPopupDiv
+  #editEventsToolEditEventsConditionPopupDivEquasionInput {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 6rem;
+  box-sizing: border-box;
+
+  background-color: white;
+  border: 1px solid rgb(87, 39, 163);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 400;
+  color: black;
+  outline: none;
+}
+
+.map-edit-div
+  #editEventsToolEditEventsConditionPopupDiv
+  #editEventsToolEditEventsConditionPopupDivTreeHolder {
+  display: flex;
+  flex-direction: horizontal;
+  position: relative;
+  background-color: rgba(145, 83, 244, 1);
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+  height: 100%;
+
+  border: 0.2rem solid white;
+  border-radius: 10px;
+
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.8rem;
+  color: white;
+
+  overflow: auto;
+}
+
+.map-edit-div
+  #editEventsToolEditEventsConditionPopupDiv
+  #editEventsToolEditEventsConditionPopupDivTreeHolder
+  select {
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.6rem;
+  color: black;
+  background-color: white;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #d6c5f0;
+  border-radius: 3px;
+  width: min-content;
+  margin-top: 0.2rem;
+}
+
+.map-edit-div
+  #editEventsToolEditEventsConditionPopupDiv
+  #editEventsToolEditEventsConditionPopupDivTreeHolder
+  input {
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.6rem;
+  color: black;
+  background-color: white;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #d6c5f0;
+  border-radius: 3px;
+  width: 4rem;
+  margin-top: 0.1rem;
+}
+
+.map-edit-div
+  #editEventsToolEditEventsConditionPopupDiv
+  #editEventsToolEditEventsConditionPopupDivTreeHolder
+  label {
+  margin-top: 0.3rem;
+}
+
+.map-edit-div
+  #editEventsToolEditEventsConditionPopupDiv
+  .editEventsToolEditEventsConditionPopupDivTreeElementDivHolder {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.map-edit-div
+  #editEventsToolEditEventsConditionPopupDiv
+  .editEventsToolEditEventsConditionPopupDivTreeElementDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(145, 83, 244, 1);
+  box-sizing: border-box;
+  min-width: 6rem;
+  min-height: 3rem;
+
+  border: 0.2rem solid white;
+  border-radius: 10px;
+
+  margin: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+/* edit object tool css */
+.map-edit-div #editObjectTool select {
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.9rem;
+  color: black;
+  background-color: white;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #d6c5f0;
+  border-radius: 3px;
+  width: min-content;
+}
+
+.map-edit-div #editObjectToolSettingPositionDiv {
+  width: 100%;
+  height: 100%;
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.9rem;
+  color: black;
+}
+
+/*edit objects css*/
+.map-edit-div #editObjectsTool table,
+tr,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid white;
+  box-sizing: border-box;
+}
+
+.map-edit-div #editObjectsTool table {
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  width: 100%;
+}
+
+.map-edit-div #editObjectsTool tr {
+  text-align: center;
+  border: 2px solid white;
+}
+
+.map-edit-div #editObjectsTool td {
+  width: 30%;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopup {
+  display: flex;
+  position: absolute;
+  left: 25%;
+  top: 0%;
+  flex-direction: column;
+  width: 75%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  overflow-y: auto;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupCloseButton {
+  position: absolute;
+  left: 0.8rem;
+  top: 0.5rem;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupTableHolder {
+  margin-top: 10rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupTableHolder input {
+  background: none;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupTableHolder select {
+  background: none;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupTableHolder select option {
+  background-color: rgba(145, 83, 244, 1);
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddObjectDiv {
+  display: flex;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  vertical-align: middle;
+  align-content: center;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddObjectDivContentHolder {
+  align-self: center;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddObjectDivContentHolder {
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: right;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupTableHolder td {
+  width: 20%;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupTableHolder td button {
+  height: 1.2rem;
+  width: 100%;
+  margin: 0%;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddObjectDivContentHolder label {
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  align-self: left;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddObjectDivContentHolder input {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddObjectDivContentHolder select {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  align-self: left;
+}
+
+.map-edit-div
+  #editObjectsToolEditObjectsPopupAddObjectDivContentHolder
+  select
+  option {
+  background-color: rgba(145, 83, 244, 1);
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddObjectDivAddButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddObjectDivCloseButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddEventDivContentHolder {
+  align-self: center;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddEventDivContentHolder {
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: right;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupTableHolder td {
+  width: 20%;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupTableHolder td button {
+  height: 1.2rem;
+  width: 100%;
+  margin: 0%;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddEventDivContentHolder label {
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  align-self: left;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddEventDivContentHolder input {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddEventDivContentHolder select {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  align-self: left;
+}
+
+.map-edit-div
+  #editObjectsToolEditObjectsPopupAddEventDivContentHolder
+  select
+  option {
+  background-color: rgba(145, 83, 244, 1);
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddEventDivAddButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div #editObjectsToolEditObjectsPopupAddEventDivCloseButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div #editObjectsToolEditObjectsSaveButton {
+  margin-left: 0rem;
+}
+
+.map-edit-div #editObjectsToolEditObjectsConditionPopupDiv {
+  display: flex;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  overflow-y: auto;
+}
+
+.map-edit-div
+  #editObjectsToolEditObjectsConditionPopupDiv
+  #editObjectsToolEditObjectsConditionPopupDivEquasionInput {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 6rem;
+  box-sizing: border-box;
+
+  background-color: white;
+  border: 1px solid rgb(87, 39, 163);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 400;
+  color: black;
+  outline: none;
+}
+
+.map-edit-div
+  #editObjectsToolEditObjectsConditionPopupDiv
+  #editObjectsToolEditObjectsConditionPopupDivTreeHolder {
+  display: flex;
+  flex-direction: horizontal;
+  position: relative;
+  background-color: rgba(145, 83, 244, 1);
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+  height: 100%;
+
+  border: 0.2rem solid white;
+  border-radius: 10px;
+
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.8rem;
+  color: white;
+
+  overflow: auto;
+}
+
+.map-edit-div
+  #editObjectsToolEditObjectsConditionPopupDiv
+  #editObjectsToolEditObjectsConditionPopupDivTreeHolder
+  select {
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.6rem;
+  color: black;
+  background-color: white;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #d6c5f0;
+  border-radius: 3px;
+  width: min-content;
+  margin-top: 0.2rem;
+}
+
+.map-edit-div
+  #editObjectsToolEditObjectsConditionPopupDiv
+  #editObjectsToolEditObjectsConditionPopupDivTreeHolder
+  input {
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.6rem;
+  color: black;
+  background-color: white;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #d6c5f0;
+  border-radius: 3px;
+  width: 4rem;
+  margin-top: 0.1rem;
+}
+
+.map-edit-div
+  #editObjectsToolEditObjectsConditionPopupDiv
+  #editObjectsToolEditObjectsConditionPopupDivTreeHolder
+  label {
+  margin-top: 0.3rem;
+}
+
+.map-edit-div
+  #editObjectsToolEditObjectsConditionPopupDiv
+  .editObjectsToolEditObjectsConditionPopupDivTreeElementDivHolder {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.map-edit-div
+  #editObjectsToolEditObjectsConditionPopupDiv
+  .editObjectsToolEditObjectsConditionPopupDivTreeElementDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(145, 83, 244, 1);
+  box-sizing: border-box;
+  min-width: 6rem;
+  min-height: 3rem;
+
+  border: 0.2rem solid white;
+  border-radius: 10px;
+
+  margin: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+/* CSS for object edit variable popup*/
+.map-edit-div #editObjectsTool #editObjectsToolChangeVariablePopup {
+  display: flex;
+  position: absolute;
+  left: 25%;
+  top: 0%;
+  flex-direction: column;
+  width: 75%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  overflow-y: auto;
+}
+
+.map-edit-div #editObjectsTool #editObjectsToolChangeVariablePopupCloseButton {
+  position: absolute;
+  left: 0.8rem;
+  top: 0.5rem;
+}
+
+.map-edit-div #editObjectsTool #editObjectsToolChangeVariablePopupTableHolder {
+  margin-top: 10rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupTableHolder
+  input {
+  background: none;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupTableHolder
+  select {
+  background: none;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupTableHolder
+  select
+  option {
+  background-color: rgba(145, 83, 244, 1);
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupAddVarableDiv {
+  display: flex;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  vertical-align: middle;
+  align-content: center;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupAddVarableDivContentHolder {
+  align-self: center;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupAddVarableDivContentHolder {
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: right;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupTableHolder
+  td {
+  width: 20%;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupTableHolder
+  td
+  button {
+  height: 1.2rem;
+  width: 100%;
+  margin: 0%;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupAddVarableDivContentHolder
+  label {
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  align-self: left;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupAddVarableDivContentHolder
+  input {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupAddVarableDivContentHolder
+  select {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  align-self: left;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupAddVarableDivContentHolder
+  select
+  option {
+  background-color: rgba(145, 83, 244, 1);
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupAddVarableDivAddButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div
+  #editObjectsTool
+  #editObjectsToolChangeVariablePopupAddVarableDivCloseButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div #editObjectsTool #editObjectsToolChangeVariableSaveButton {
+  margin-left: 0%;
+}
+
+/* CSS for object edit event popup */
+.map-edit-div #editObjectsToolEditEventsPopup {
+  display: flex;
+  position: absolute;
+  left: 25%;
+  top: 0%;
+  flex-direction: column;
+  width: 75%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  overflow-y: auto;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupCloseButton {
+  position: absolute;
+  left: 0.8rem;
+  top: 0.5rem;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupTableHolder {
+  margin-top: 10rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupTableHolder input {
+  background: none;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupTableHolder select {
+  background: none;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupTableHolder select option {
+  background-color: rgba(145, 83, 244, 1);
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupAddEventDiv {
+  display: flex;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  vertical-align: middle;
+  align-content: center;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupAddEventDivContentHolder {
+  align-self: center;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupAddEventDivContentHolder {
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: right;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupTableHolder td {
+  width: 20%;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupTableHolder td button {
+  height: 1.2rem;
+  width: 100%;
+  margin: 0%;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupAddEventDivContentHolder label {
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  align-self: left;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupAddEventDivContentHolder input {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupAddEventDivContentHolder select {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  background: none;
+  border: 0.1rem solid white;
+  border-radius: 2px;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  align-self: left;
+}
+
+.map-edit-div
+  #editObjectsToolEditEventsPopupAddEventDivContentHolder
+  select
+  option {
+  background-color: rgba(145, 83, 244, 1);
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupAddEventDivAddButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div #editObjectsToolEditEventsPopupAddEventDivCloseButton {
+  margin: 0%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.8rem;
+}
+
+.map-edit-div #editObjectsToolEditEventsSaveButton {
+  margin-left: 0%;
+}
+
+.map-edit-div #editObjectsToolEditEventsConditionPopupDiv {
+  display: flex;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+  overflow-y: auto;
+}
+
+.map-edit-div
+  #editObjectsToolEditEventsConditionPopupDiv
+  #editObjectsToolEditObjectsConditionPopupDivEquasionInput {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 6rem;
+  box-sizing: border-box;
+
+  background-color: white;
+  border: 1px solid rgb(87, 39, 163);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 400;
+  color: black;
+  outline: none;
+}
+
+.map-edit-div
+  #editObjectsToolEditEventsConditionPopupDiv
+  #editObjectsToolEditObjectsConditionPopupDivTreeHolder {
+  display: flex;
+  flex-direction: horizontal;
+  position: relative;
+  background-color: rgba(145, 83, 244, 1);
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+  height: 100%;
+
+  border: 0.2rem solid white;
+  border-radius: 10px;
+
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.8rem;
+  color: white;
+
+  overflow: auto;
+}
+
+.map-edit-div
+  #editObjectsToolEditEventsConditionPopupDiv
+  #editObjectsToolEditObjectsConditionPopupDivTreeHolder
+  select {
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.6rem;
+  color: black;
+  background-color: white;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #d6c5f0;
+  border-radius: 3px;
+  width: min-content;
+  margin-top: 0.2rem;
+}
+
+.map-edit-div
+  #editObjectsToolEditEventsConditionPopupDiv
+  #editObjectsToolEditObjectsConditionPopupDivTreeHolder
+  input {
+  font-family: "Main Regular", sans-serif;
+  font-size: 0.6rem;
+  color: black;
+  background-color: white;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #d6c5f0;
+  border-radius: 3px;
+  width: 4rem;
+  margin-top: 0.1rem;
+}
+
+.map-edit-div
+  #editObjectsToolEditEventsConditionPopupDiv
+  #editObjectsToolEditObjectsConditionPopupDivTreeHolder
+  label {
+  margin-top: 0.3rem;
+}
+
+.map-edit-div
+  #editObjectsToolEditEventsConditionPopupDiv
+  .editObjectsToolEditObjectsConditionPopupDivTreeElementDivHolder {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.map-edit-div
+  #editObjectsToolEditEventsConditionPopupDiv
+  .editObjectsToolEditObjectsConditionPopupDivTreeElementDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(145, 83, 244, 1);
+  box-sizing: border-box;
+  min-width: 6rem;
+  min-height: 3rem;
+
+  border: 0.2rem solid white;
+  border-radius: 10px;
+
+  margin: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+.map-edit-div
+  #editObjectsToolEditEventsConditionPopupDiv
+  .editObjectsToolEditEventsConditionPopupDivTreeElementDivVariableElements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(145, 83, 244, 1);
+  box-sizing: border-box;
+  min-width: 6rem;
+  min-height: 3rem;
+
+  border: 0.2rem solid white;
+  border-radius: 10px;
+
+  margin: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+/* CSS for create game menu div */
+#createGameRoomMenu {
+  width: 100%;
+  height: 100%;
+}
+
+#createGameRoomMenu .centered-content {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center, top;
+}
+
+#createGameRoomMenu .modal-action-button {
+  min-width: 100px;
+  margin-left: 0.6rem;
+  width: fit-content;
+  height: 50px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+}
+
+#createGameRoomMenu .modal-container-input {
+  background-color: white;
+  border: 1px solid rgb(87, 39, 163);
+  padding: 0.2rem 0.3rem;
+  border-radius: 10px;
+  font-family: "Main Regular", sans-serif;
+  /* font-weight: 200; */
+  color: black;
+  width: 4rem;
+  height: fit-content;
+  outline: none;
+  align-self: center;
+  text-align: center;
+}
+
+#createGameRoomMenu #createGameMenuMap {
+  min-width: 100px;
+  height: 100%;
+  width: 45%;
+  margin-left: 2%;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: left;
+}
+
+#createGameRoomMenu #createGameMenuMapText {
+  display: inline-block;
+  width: fit-content;
+  align-self: left;
+  margin: 0rem;
+  margin-left: 1.5rem;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#createGameRoomMenu #createGameMenuMapName {
+  display: inline-block;
+  width: fit-content;
+  align-self: left;
+  margin: 0rem;
+  margin-left: 0.8rem;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#createGameRoomMenu #createGameMenuMapContainer {
+  height: 95%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: solid black;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+}
+
+#createGameRoomMenu .createGameMenuMapItem {
+  width: 100%;
+  height: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  border-bottom: 1px solid #d6c5f0;
+  outline: none;
+  border-left: none;
+  border-right: none;
+}
+#createGameRoomMenu .createGameMenuMapItem:last-child {
+  border-bottom: none;
+}
+#createGameRoomMenu .selected {
+  background-color: rgb(87, 39, 163);
+}
+
+#createGameRoomMenu #createGameMenuPlayer {
+  min-width: 100px;
+  width: 45%;
+  height: 100%;
+  margin-left: 2%;
+  overflow-y: auto;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: right;
+}
+
+#createGameRoomMenu #createGameMenuPlayerText {
+  display: inline-block;
+  width: fit-content;
+  align-self: left;
+  margin: 0rem;
+  margin-left: 1.5rem;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#createGameRoomMenu #createGameMenuPlayerContainer {
+  width: 100%;
+  height: 85%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-radius: 5px;
+  background-color: rgba(145, 83, 244, 1);
+  border: solid black;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: right;
+}
+
+#createGameRoomMenu .createGameMenuPlayerItem {
+  width: 100%;
+  height: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  border-bottom: 1px solid #d6c5f0;
+  outline: none;
+  border-left: none;
+  border-right: none;
+}
+#createGameRoomMenu .createGameMenuPlayerItem:last-child {
+  border-bottom: none;
+}
+
+#createGameRoomMenu .createGameMenuPlayerItemName {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 40%;
+  align-self: left;
+  margin: 0rem;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#createGameRoomMenu .createGameMenuPlayerItemKick {
+  width: 20%;
+  height: 80%;
+  box-sizing: border-box;
+  padding: 0%;
+  background-color: rgb(87, 39, 163);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+}
+
+#createGameRoomMenu .createGameMenuPlayerItemMakeHost {
+  width: 20%;
+  height: 80%;
+  box-sizing: border-box;
+  padding: 0%;
+  background-color: rgb(87, 39, 163);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+}
+
+#createGameRoomMenu #createGameMenuInvitePlayerHolder {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+#createGameRoomMenu #createGameMenuInvitePlayer {
+  min-width: 100px;
+  display: inline-block;
+  width: fit-content;
+  height: 5%;
+  margin-top: 1rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+#createGameRoomMenu #createGameRoomStartHolder {
+  display: flex;
+  width: 100%;
+  height: 8%;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+#createGameRoomMenu #createGameRoomStartHolder button:first-child {
+  margin-bottom: 0rem;
+}
+
+#createGameRoomMenu #createGameRoomStart {
+  min-width: 100px;
+  display: inline-block;
+  width: fit-content;
+  height: 80%;
+  margin-top: 1rem;
+  margin-right: 2rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: 1px solid rgb(87, 39, 163);
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+#createGameRoomMenu #createGameRoomOnPlayerClick {
+  width: 20rem;
+  height: fit-content;
+  margin: 0rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: 1px solid rgb(87, 39, 163);
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+/* CSS for join game menu div */
+#joinGameRoomMenu {
+  width: 100%;
+  height: 100%;
+}
+
+#joinGameRoomMenu .centered-content {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center, top;
+}
+
+#joinGameRoomMenu .modal-action-button {
+  min-width: 100px;
+  margin-left: 0.6rem;
+  width: fit-content;
+  height: 50px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+}
+
+#joinGameRoomMenu #joinGameMenuMap {
+  min-width: 100px;
+  height: 100%;
+  width: 45%;
+  margin-left: 2%;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: left;
+}
+
+#joinGameRoomMenu #joinGameMenuMapText {
+  display: inline-block;
+  width: fit-content;
+  align-self: left;
+  margin: 0rem;
+  margin-left: 1.5rem;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#joinGameRoomMenu #joinGameMenuMapName {
+  display: inline-block;
+  width: fit-content;
+  align-self: left;
+  margin: 0rem;
+  margin-left: 0.8rem;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#joinGameRoomMenu #joinGameMenuMapContainer {
+  height: 95%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: solid black;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+}
+
+#joinGameRoomMenu .joinGameMenuMapItem {
+  width: 100%;
+  height: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  border-bottom: 1px solid #d6c5f0;
+  outline: none;
+  border-left: none;
+  border-right: none;
+}
+#joinGameRoomMenu .joinGameMenuMapItem:last-child {
+  border-bottom: none;
+}
+#joinGameRoomMenu .selected {
+  background-color: rgb(87, 39, 163);
+}
+
+#joinGameRoomMenu #joinGameMenuPlayer {
+  min-width: 100px;
+  width: 45%;
+  height: 100%;
+  margin-left: 2%;
+  overflow-y: auto;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: right;
+}
+
+#joinGameRoomMenu #joinGameMenuPlayerText {
+  display: inline-block;
+  width: fit-content;
+  align-self: left;
+  margin: 0rem;
+  margin-left: 1.5rem;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#joinGameRoomMenu #joinGameMenuPlayerContainer {
+  width: 100%;
+  height: 85%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-radius: 5px;
+  background-color: rgba(145, 83, 244, 1);
+  border: solid black;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: right;
+}
+
+#joinGameRoomMenu .joinGameMenuPlayerItem {
+  width: 100%;
+  height: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  border-bottom: 1px solid #d6c5f0;
+  outline: none;
+  border-left: none;
+  border-right: none;
+}
+#joinGameRoomMenu .joinGameMenuPlayerItem:last-child {
+  border-bottom: none;
+}
+
+#joinGameRoomMenu .joinGameMenuPlayerItemName {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 50%;
+  align-self: left;
+  margin: 0rem;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#joinGameRoomMenu .joinGameMenuPlayerItemAddFriend {
+  width: 35%;
+  height: 80%;
+  box-sizing: border-box;
+  padding: 0%;
+  background-color: rgb(87, 39, 163);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+}
+
+#joinGameRoomMenu #joinGameMenuInvitePlayerHolder {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+#joinGameRoomMenu #joinGameMenuInvitePlayer {
+  min-width: 100px;
+  display: inline-block;
+  width: fit-content;
+  height: 5%;
+  margin-top: 1rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+#joinGameRoomMenu #joinGameRoomStartHolder {
+  display: inline-block;
+  width: 100%;
+  height: 8%;
+  text-align: right;
+}
+
+#joinGameRoomMenu #joinGameRoomStart {
+  min-width: 100px;
+  display: inline-block;
+  width: fit-content;
+  height: 80%;
+  margin-top: 1rem;
+  margin-right: 2rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: 1px solid rgb(87, 39, 163);
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+#joinGameRoomMenu #joinGameRoomOnPlayerClick {
+  width: 20rem;
+  height: fit-content;
+  margin: 0rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: 1px solid rgb(87, 39, 163);
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+#mapChoose {
+  width: 100%;
+  height: 100%;
+}
+
+#mapChoose .modal-action-button {
+  min-width: 100px;
+  margin-left: 0.6rem;
+  width: fit-content;
+  height: 50px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+}
+
+#mapChoose #mapChooseContainer {
+  margin-left: 10%;
+  width: 80%;
+  height: 80%;
+  align-self: center;
+}
+
+#mapChoose #mapChooseContainerTextholder {
+  width: 100%;
+  height: fit-content;
+  align-self: left;
+  display: block;
+  box-sizing: border-box;
+  margin: 0rem;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#mapChoose #mapChooseContainerText {
+  float: left;
+  box-sizing: border-box;
+  width: fit-content;
+  height: 100%;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+  text-align: center;
+}
+
+#mapChoose #mapChooseContainerCreateRoomButton {
+  margin: 0rem;
+  padding: 0rem;
+  margin-right: 3rem;
+  float: right;
+  border: 3px solid rgb(87, 39, 163);
+  border-radius: 10px;
+}
+
+#mapChoose #mapChooseContainerCreateRoomButton:active {
+  margin: 0rem;
+  padding: 0rem;
+  margin-right: 3rem;
+  float: right;
+  border: 3px solid rgb(87, 39, 163);
+  border-radius: 10px;
+  background-color: rgb(87, 39, 163);
+}
+
+#mapChoose #mapChooseContainerList {
+  display: inline-block;
+  margin-top: 1rem;
+  width: 100%;
+  height: 90%;
+  background-color: rgba(145, 83, 244, 1);
+  border: 6px solid rgb(87, 39, 163);
+  border-radius: 10px;
+  overflow-y: none;
+  position: relative;
+}
+
+#mapChoose #mapChooseContainerListElementMapAndCreatorNameHolder {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  border-bottom: 3px solid rgb(87, 39, 163);
+  outline: none;
+  border-left: none;
+  border-right: none;
+  position: absolute;
+  left: 0rem;
+  right: 0rem;
+  top: 0rem;
+  height: 3rem;
+}
+
+#mapChoose .mapChooseContainerListElementMapNameText {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapChoose .mapChooseContainerListElementCreatorNameText {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapChoose .mapChooseContainerListElementEditText {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapChoose .mapChooseContainerListElementDeleteText {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapChoose #mapChooseContainerListElementsHolder {
+  overflow-y: auto;
+  position: absolute;
+  left: 0rem;
+  right: 0rem;
+  top: 3rem;
+  bottom: 0rem;
+}
+
+#mapChoose .mapChooseContainerListElement {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  border-bottom: 1px solid rgb(87, 39, 163);
+  outline: none;
+  border-left: none;
+  border-right: none;
+}
+
+#mapChoose .mapChooseContainerListElementMapNameHolder {
+  width: 25%;
+  box-sizing: border-box;
+}
+#mapChoose .mapChooseContainerListElementCreatorNameHolder {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapChoose .mapChooseContainerListElementEditButtonHolder {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapChoose .mapChooseContainerListElementDeleteButtonHolder {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapChoose .mapChooseContainerListElementButton {
+  min-width: 100px;
+  width: fit-content;
+  height: 50px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: rgb(87, 39, 163);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: right;
+}
+
+#gameList {
+  width: 100%;
+  height: 100%;
+}
+
+#gameList .modal-action-button {
+  min-width: 100px;
+  margin-left: 0.6rem;
+  width: fit-content;
+  height: 50px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+}
+
+#gameList #gameListContainer {
+  margin-left: 10%;
+  width: 80%;
+  height: 80%;
+  align-self: center;
+}
+
+#gameList #gameListContainerTextholder {
+  width: 100%;
+  height: fit-content;
+  align-self: left;
+  display: block;
+  box-sizing: border-box;
+  margin: 0rem;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#gameList #gameListContainerText {
+  float: left;
+  box-sizing: border-box;
+  width: fit-content;
+  height: 100%;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+  text-align: center;
+}
+
+#gameList #gameListContainerCreateRoomButton {
+  margin: 0rem;
+  padding: 0rem;
+  margin-right: 3rem;
+  float: right;
+  border: 3px solid rgb(87, 39, 163);
+  border-radius: 10px;
+}
+
+#gameList #gameListContainerCreateRoomButton:active {
+  margin: 0rem;
+  padding: 0rem;
+  margin-right: 3rem;
+  float: right;
+  border: 3px solid rgb(87, 39, 163);
+  border-radius: 10px;
+  background-color: rgb(87, 39, 163);
+}
+
+#gameList #gameListContainerList {
+  display: inline-block;
+  margin-top: 1rem;
+  width: 100%;
+  height: 90%;
+  background-color: rgba(145, 83, 244, 1);
+  border: 6px solid rgb(87, 39, 163);
+  border-radius: 10px;
+  overflow-y: none;
+  position: relative;
+}
+
+#gameList #gameListContainerListElementMapAndHostNameHolder {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  border-bottom: 3px solid rgb(87, 39, 163);
+  outline: none;
+  border-left: none;
+  border-right: none;
+  position: absolute;
+  left: 0rem;
+  right: 0rem;
+  top: 0rem;
+  height: 3rem;
+}
+
+#gameList .gameListContainerListElementMapNameText {
+  width: 33%;
+  box-sizing: border-box;
+}
+
+#gameList .gameListContainerListElementHostNameText {
+  width: 33%;
+  box-sizing: border-box;
+}
+
+#gameList .gameListContainerListElementJoinText {
+  width: 33%;
+  box-sizing: border-box;
+}
+
+#gameList #gameListContainerListElementsHolder {
+  overflow-y: auto;
+  position: absolute;
+  left: 0rem;
+  right: 0rem;
+  top: 3rem;
+  bottom: 0rem;
+}
+
+#gameList .gameListContainerListElement {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  border-bottom: 1px solid rgb(87, 39, 163);
+  outline: none;
+  border-left: none;
+  border-right: none;
+}
+
+#gameList .gameListContainerListElementMapNameHolder {
+  width: 33%;
+  box-sizing: border-box;
+}
+#gameList .gameListContainerListElementHostNameHolder {
+  width: 33%;
+  box-sizing: border-box;
+}
+
+#gameList .gameListContainerListElementButtonHolder {
+  width: 33%;
+  box-sizing: border-box;
+}
+
+#gameList .gameListContainerListElementButton {
+  min-width: 100px;
+  margin-left: 10%;
+  width: fit-content;
+  height: 50px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: rgb(87, 39, 163);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: right;
+}
+
+#mapList {
+  width: 100%;
+  height: 100%;
+}
+
+#mapList .modal-action-button {
+  min-width: 100px;
+  margin-left: 0.6rem;
+  width: fit-content;
+  height: 50px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+}
+
+#mapList #mapListContainer {
+  margin-left: 10%;
+  width: 80%;
+  height: 80%;
+  align-self: center;
+}
+
+#mapList #mapListContainerTextholder {
+  width: 100%;
+  height: fit-content;
+  align-self: left;
+  display: block;
+  box-sizing: border-box;
+  margin: 0rem;
+  overflow-y: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+
+#mapList #mapListContainerText {
+  float: left;
+  box-sizing: border-box;
+  width: fit-content;
+  height: 100%;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+  text-align: center;
+}
+
+#mapList #mapListContainerCreateRoomButton {
+  margin: 0rem;
+  padding: 0rem;
+  margin-right: 3rem;
+  float: right;
+  border: 3px solid rgb(87, 39, 163);
+  border-radius: 10px;
+}
+
+#mapList #mapListContainerCreateRoomButton:active {
+  margin: 0rem;
+  padding: 0rem;
+  margin-right: 3rem;
+  float: right;
+  border: 3px solid rgb(87, 39, 163);
+  border-radius: 10px;
+  background-color: rgb(87, 39, 163);
+}
+
+#mapList #mapListContainerList {
+  display: inline-block;
+  margin-top: 1rem;
+  width: 100%;
+  height: 90%;
+  background-color: rgba(145, 83, 244, 1);
+  border: 6px solid rgb(87, 39, 163);
+  border-radius: 10px;
+  overflow-y: none;
+  position: relative;
+}
+
+#mapList #mapListContainerListElementMapAndCreatorNameHolder {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  border-bottom: 3px solid rgb(87, 39, 163);
+  outline: none;
+  border-left: none;
+  border-right: none;
+  position: absolute;
+  left: 0rem;
+  right: 0rem;
+  top: 0rem;
+  height: 3rem;
+}
+
+#mapList .mapListContainerListElementMapNameText {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapList .mapListContainerListElementCreatorNameText {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapList .mapListContainerListElementJoinText {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapList .mapListContainerListElementPreviewText {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapList #mapListContainerListElementsHolder {
+  overflow-y: auto;
+  position: absolute;
+  left: 0rem;
+  right: 0rem;
+  top: 3rem;
+  bottom: 0rem;
+}
+
+#mapList .mapListContainerListElement {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  font-family: "Main Regular", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  border-bottom: 1px solid rgb(87, 39, 163);
+  outline: none;
+  border-left: none;
+  border-right: none;
+}
+
+#mapList .mapListContainerListElementMapNameHolder {
+  width: 25%;
+  box-sizing: border-box;
+}
+#mapList .mapListContainerListElementCreatorNameHolder {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapList .mapListContainerListElementSaveButtonHolder {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapList .mapListContainerListElementPreviewButtonHolder {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#mapList .mapListContainerListElementButton {
+  min-width: 100px;
+  width: fit-content;
+  height: 50px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: rgb(87, 39, 163);
+  border-radius: 5px;
+  border: none;
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: right;
+}
+
+
+
+/* loading menu css */
+#loadingMenu{
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    rgba(87, 39, 163, 1) 0%,
+    rgba(145, 83, 244, 1) 100%
+  );
+
+  text-align: center;
+  
+  font-size: 2.5rem;
+  color: white;
+  font-family: "Main Bold", sans-serif;
+  font-weight: 700;
+
+  z-index: 99 !important;
+}
+
+#loadingMenu #textHolder{
+  margin-top: 15%;
+}
+
+#loadingMenu #loadingCount{
+  font-size: 1.5rem;
+}
+
+.editObjectsToolEditObjectsConditionPopupDivTreeElementDivObjectElements button{
+  background-color: rgba(145, 83, 244, 1);
+  border-radius: 5px;
+  border: solid rgba(87, 39, 163, 1);
+  font-family: "Main Regular", sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+  box-sizing: border-box;
+  margin: 0.5rem;
+}
+.editObjectsToolEditObjectsConditionPopupDivTreeElementDivObjectElements button:active{
+  background-color: rgba(87, 39, 163, 1);
+}

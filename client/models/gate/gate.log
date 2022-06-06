@@ -1,0 +1,39 @@
+Exporter version: 6.4.5, Blender version: 2.90.1
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  C:\Users\Niki\Desktop\Blender Stuff\Props\gate\
+	Python World class constructor completed
+	processing begun of skeleton:  gate_1_1, id:  0
+	processing begun of camera (UniversalCamera):  Camera
+	processing begun of mesh:  gate_1
+		processing begun of material:  Material.001
+		processing begun of material:  Material.002
+		processing begun of multimaterial:  gate.Multimaterial#0
+		Custom split normals with tangents being used
+		num positions      :  1323
+		num normals        :  1323
+		num tangents       :  5292
+		num uvs            :  2646
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  530
+		Skeleton stats:  
+			Total Influencers:  0
+			Avg # of influencers per vertex:  0
+			Highest # of influencers observed:  0, num vertices with this:  1323
+			exported as 0 influencers
+			num skeletonWeights and skeletonIndices:  5292
+	processing begun of light (POINT):  Light
+========= Writing of JSON file started =========
+	writing mesh:  gate_1
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 0.0678 secs

@@ -1,0 +1,36 @@
+Exporter version: 6.4.5, Blender version: 2.90.1
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  C:\Users\Niki\Desktop\Blender Stuff\Props\house\
+	Python World class constructor completed
+	processing begun of camera (UniversalCamera):  Camera
+	processing begun of mesh:  FOUNDATION_03_3
+		processing begun of material:  Material.002
+		processing begun of material:  Material.003
+		processing begun of material:  Material.004
+		processing begun of material:  Material.005
+		processing begun of material:  Material.006
+		processing begun of material:  Material.001
+		processing begun of multimaterial:  house.Multimaterial#0
+		Custom split normals with tangents being used
+		num positions      :  72709
+		num normals        :  72709
+		num tangents       :  290836
+		num uvs            :  145418
+		num uvs2           :  145418
+		num colors         :  0
+		num triangles      :  25133
+	processing begun of light (POINT):  Light
+========= Writing of JSON file started =========
+	writing mesh:  FOUNDATION_03_3
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 2.4495 secs

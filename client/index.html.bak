@@ -1,0 +1,687 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="main.css" />
+
+	<title>Creo</title>
+
+	<style>
+		.fps {
+			position: absolute;
+			background-color: black;
+			border: 2px solid red;
+			text-align: center;
+			font-size: 16px;
+			color: white;
+			top: 15px;
+			right: 10px;
+			width: 60px;
+			height: 20px;
+		}
+		.unitsLoadedDiv {
+			position: absolute;
+			background-color: black;
+			border: 2px solid red;
+			text-align: center;
+			font-size: 16px;
+			color: white;
+			top: 45px;
+			right: 10px;
+			width: 60px;
+			height: 20px;
+		}
+</style>
+
+</head>
+
+<body>
+
+	<div id="register" style="display: none;"> <!--defaut  inline-block-->
+		<div class="centered-content">
+			<div class="modal-box">
+				<p class="modal-title">Register</p>
+				<div class="modal-container">
+					<p class="modal-container-title">Nickname:</p>
+					<input type="text" class="modal-container-input"/>
+				</div>
+				<div class="modal-container">
+					<p class="modal-container-title">Password:</p>
+					<input type="password" class="modal-container-input"/>
+				</div>
+				<button class="modal-action-button" onclick="toRegister(this)">Register</button>
+				<button class="modal-action-button-switch" onclick="switchBetweenLoginAndRegister()">To Login</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="login" style="display: inline-block;"> <!--defaut  inline-block-->
+		<div class="centered-content">
+			<div class="modal-box">
+				<p class="modal-title">Login</p>
+				<div class="modal-container">
+					<p class="modal-container-title">Nickname:</p>
+					<input type="text" class="modal-container-input"/>
+				</div>
+				<div class="modal-container">
+					<p class="modal-container-title">Password:</p>
+					<input type="password" class="modal-container-input"/>
+				</div>
+				<button class="modal-action-button" onclick="toLogin(this)">Login</button>
+				<button class="modal-action-button-switch" onclick="switchBetweenLoginAndRegister()">To Register</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="mainMenu" style="display: none;"> <!--defaut  inline-block-->
+		<div class="centered-content">
+			<div class="modal-box">
+				<button class="modal-action-button" onclick="toMapChoose()">Map Edit</button>
+				<button class="modal-action-button" onclick='toGameList()'>Game list</button>
+				<button class="modal-action-button" onclick='toMapList()'>Map list</button>
+				<button class="modal-action-button" onclick="logOut()">Log Out</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="mapNameChoose" style="display: none;"> <!--defaut  inline-block-->
+		<button class="modal-action-button" onclick="toMapChoose()">Back</button>
+		<div class="centered-content">
+			<div class="modal-box">
+				<div class="modal-container">
+					<p class="modal-container-title">Map name:</p>
+					<input type="text" class="modal-container-input"/>
+				</div>
+				<button class="modal-action-button" onclick="fromMapNameChooseToMapEdit()">Create map</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="map-edit-div" style="display: flex;"> <!--defaut  flex-->
+		<button class="modal-action-button" id="mapEditBackButton" style="display: none;" onclick="toMapChoose()">Back</button>
+		<div class="fps">0</div>
+		<div class="unitsLoadedDiv">0</div>
+		
+		<div class="tool-holder">
+			<p class="side-section-title">Edit tools</p>
+			<div class="side-section-content">
+				<div class="side-section-content-item">
+					<p class="side-section-content-item-title">Choose edit tool</p>
+					<select class="side-section-content-item-input" id="toolChanger" onchange='toolChangerFunction()'>
+						<option value="0" selected>Height edit</option>
+						<option value="1">Material edit</option>
+						<option value="2">Add objects</option>
+						<option value="3">Remove objects</option>
+						<option value="4">Change variables</option>
+						<option value="5">Edit expresions</option>
+						<option value="6">Invite</option>
+					</select>
+				</div>
+
+				<div class="side-section-content-item" id="heightTool">
+					<p class="side-section-content-item-title">Height tool parameters</p>
+					<div class="side-section-content-item-section">
+						<p class="side-section-content-item-section-title">Height index:</p>
+						<input class="side-section-content-item-input " type="range" min="-100" max="100" value="0"
+							id="" step="1" id="height_tool_index" oninput="outputUpdate(value, 'height_tool_index')" />
+						<br>
+						<output class="text-normal overlapping-margin-top" for="height_tool_index"
+							id="height_tool_index_output">0</output>
+					</div>
+					<div class="side-section-content-item-section">
+						<p class="side-section-content-item-section-title">Radius index:</p>
+						<input class="side-section-content-item-input" type="range" min="0" max="2000" value="100"
+							id="height_tool_radius" step="1" oninput="outputUpdate(value, 'height_tool_radius')">
+						<br>
+						<output class="text-normal overlapping-margin-top" for="height_tool_radius"
+							id="height_tool_radius_output">100</output>
+					</div>
+					<div class="side-section-content-item-section inline-section">
+						<p class="side-section-content-item-section-title" id="height_tool_is_filter_smooth_text">Smoothen filter:</p>
+						<input class="side-section-content-item-input" id="height_tool_is_filter_smooth"
+							type="checkbox">
+					</div>
+					<div class="side-section-content-item-section inline-section">
+						<p class="side-section-content-item-section-title">Leveling filter:</p>
+						<input class="side-section-content-item-input" id="height_tool_is_filter_leveling"
+							type="checkbox" onchange='changeOpacity(this.parentElement.parentElement, this.checked, ["#height_tool_is_filter_smooth", "#height_tool_is_filter_smooth_text"])'>
+					</div>
+				</div>
+
+				<div class="side-section-content-item" id="materialTool" style="display: none;">
+					<p class="side-section-content-item-title">Material tools parameters</p>
+					<select class="side-section-content-item-input" id="toolChanger"
+						onchange="materialChangerFunction()">
+						<option value="1" selected>Dirt</option>
+						<option value="5">Dirt 1</option>
+						<option value="2">Stone</option>
+						<option value="3">Grass</option>
+						<option value="4">Sand</option>
+					</select>
+					<div class="side-section-content-item-section">
+						<p class="side-section-content-item-section-title">Radius index:</p>
+						<input class="side-section-content-item-input" type="range" min="0" max="500" value="100"
+							id="material_tool_radius" step="1" oninput="outputUpdate(value, 'material_tool_radius')">
+						<br>
+						<output class="text-normal overlapping-margin-top" for="material_tool_radius"
+							id="material_tool_radius_output">100</output>
+					</div>
+				</div>
+
+				<div class="side-section-content-item" id="addItemTool" style="display: none;">
+					<p class="side-section-content-item-title">Objects</p>
+					<select class="side-section-content-item-input" id="itemChangerChanger"
+						onchange="dropListChangeFunction()">
+						<option value="0" selected>Unit</option>
+						<option value="1">Forest</option>
+						<option value="2">Desert</option>
+						<option value="3">Props</option>
+					</select>
+					<select class="side-section-content-item-input" id="forestItemChanger" style="display: none;"
+						onchange="itemChangerFunction()">
+						<option value="1">Tree 1</option>
+						<option value="2">Tree 2</option>
+						<option value="3">Tree 3</option>
+						<option value="4">Tree 4</option>
+						<option value="5">Tree 5</option>
+						<option value="6">Tree 6</option>
+						<option value="7">Big Stone 1</option>
+						<option value="8">Big Stone 2</option>
+						<option value="9">Big Stone 3</option>
+						<option value="10">Mid Stone 1</option>
+						<option value="11">Mid Stone 2</option>
+						<option value="12">Mid Stone 3</option>
+						<option value="13">Mid Stone 4</option>
+						<option value="14">Rubble 1</option>
+						<option value="15">Rubble 2</option>
+					</select>
+					<select class="side-section-content-item-input" id="desertItemChanger" style="display: none;"
+						onchange="itemChangerFunction()">
+						<option value="18">Sand Rock 1</option>
+						<option value="19">Sand Rock 2</option>
+						<option value="20">Sand Rock 3</option>
+						<option value="21">Sand Stone 1</option>
+						<option value="22">Sand Stone 2</option>
+						<option value="23">Small Sand Stone</option>
+						<option value="24">Big Sand Stone</option>
+						<option value="25">Small Cactus</option>
+						<option value="26">Spiky Cactus</option>
+						<option value="27">Round Cactus</option>
+					</select>
+					<select class="side-section-content-item-input" id="propsItemChanger" style="display: none;"
+						onchange="itemChangerFunction()">
+						<option value="16">Barrel</option>
+						<option value="17">Box</option>
+						<option value="28">House</option>
+						<option value="31">Robot</option>
+						<!--<option value="29">Fence</option>
+						<option value="30">Gate</option>-->
+					</select>
+					<div id="add_item_tool_object_parameters" style="display: none;">
+						<div class="side-section-content-item-section inline-section">
+							<p class="side-section-content-item-section-title">Use random rotation:</p>
+							<input class="side-section-content-item-input" id="add_item_tool_is_rotation_random"
+								type="checkbox" onchange='changeOpacity(this.parentElement.parentElement, this.checked, ["#add_item_tool_rotation_range"])'>
+						</div>
+						<div id="add_item_tool_rotation_range">
+							<p class="side-section-content-item-section-title">Radius index:</p>
+							<input class="side-section-content-item-input" type="range" min="0" max="360" value="0"
+								id="add_item_tool_rotation" step="1" oninput="outputUpdate(value, 'add_item_tool_rotation')">
+							<br>
+							<output class="text-normal overlapping-margin-top" for="add_item_tool_rotation"
+								id="add_item_tool_rotation_output">0</output>
+						</div>
+						<div class="side-section-content-item-section inline-section">
+							<p class="side-section-content-item-section-title">Use random color change:</p>
+							<input class="side-section-content-item-input" id="add_item_tool_is_color_change_random"
+								type="checkbox" onchange='changeOpacity(this.parentElement.parentElement, this.checked, ["#add_item_tool_color_range"])'>
+						</div>
+						<div id="add_item_tool_color_range">
+							<p class="side-section-content-item-section-title">Color index:</p>
+							<input class="side-section-content-item-input" type="range" min="0" max="1" value="0"
+								id="add_item_tool_color" step="0.1" oninput="outputUpdate(value, 'add_item_tool_color')">
+							<br>
+							<output class="text-normal overlapping-margin-top" for="add_item_tool_color"
+								id="add_item_tool_color_output">0</output>
+						</div>
+					</div>
+				</div>
+
+				<div class="side-section-content-item" id="removeTool" style="display: none;">
+					<p class="side-section-content-item-title">Remove tool</p>
+					<select class="side-section-content-item-input" id="removeChanger"
+						onchange="removeChangerFunction()">
+						<option value="1" selected>Remove single object</option>
+						<option value="2">Remove in radius</option>
+					</select>
+
+					<div class="side-section-content-item-section" id = "removeObjectChangerDiv" style="display: block;">
+						<select class="side-section-content-item-input" id="removeObjectChanger">
+						<option value="1" selected>Remove objects</option>
+						<option value="2">Remove units</option>
+					</select>
+					</div>
+
+					<div class="side-section-content-item-section" id = "removeObjectInRadiusDiv" style="display: none;">
+						<p class="side-section-content-item-section-title">Radius index:</p>
+						<input class="side-section-content-item-input" type="range" min="0" max="500" value="100"
+							id="remove_tool_radius" step="1" oninput="outputUpdate(value, 'remove_tool_radius')">
+						<br>
+						<output class="text-normal overlapping-margin-top" for="remove_tool_radius"
+							id="remove_tool_radius_output">100</output>
+					</div>
+				</div>
+
+				<div class="side-section-content-item" id="changeVariableTool" style="display: none;">
+					<p class="side-section-content-item-title">Change variable tool</p>
+					<table>
+						<tr>
+						  <th>Name</th>
+						  <th>Type</th>
+						  <th>Value</th>
+						</tr>
+						<tr id="changeVariableToolRowToCopy" style="display: none;"> <!--display: table-row-->
+						  <td class="changeVariableName">var1</td>
+						  <td class="changeVariableType">type1</td>
+						  <td class="changeVariableValue">0</td>
+						</tr>
+					</table>
+
+					<button class="modal-action-button" onclick='document.getElementById("changeVariableToolChangeVariablePopup").style.display="flex"'>Change variables</button>
+
+					<div id="changeVariableToolChangeVariablePopup">
+						<button class="modal-action-button" id="changeVariableToolChangeVariablePopupCloseButton" onclick='document.getElementById("changeVariableToolChangeVariablePopup").style.display = "none"'>Close</button>
+					  
+						<div id="changeVariableToolChangeVariablePopupTableHolder">
+							<table>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Value</th>
+									<th>Remove</th>
+								</tr>
+								<tr id="changeVariableToolChangeVariablePopupRowToCopy" style="display: none;">
+									<td class="changeVariableName"><input type="text" value="var1"></td>
+									<td class="changeVariableType">
+										<select class="changeVariableType">
+										  <option value="number">number</option>
+										  <option value="string">string</option>
+									  </select>
+									</td>
+									<td class="changeVariableValue"><input type="text" value="0"></td>
+									<td class="changeVariableRemove"><button class="modal-action-button" onclick=''>Remove</button></td>
+								</tr>
+							</table>
+						</div>
+
+						<button class="modal-action-button" id="changeVariableToolChangeVariablePopupAddVarableButton" onclick='document.getElementById("changeVariableToolChangeVariablePopupAddVarableDiv").style.display="flex"'>Add Variable</button>
+						<button class="modal-action-button" id="changeVariableToolChangeVariableSaveButton" onclick='changeVariableToolSaveButtonClick()'>Save changes</button>
+
+						<div id="changeVariableToolChangeVariablePopupAddVarableDiv" style="display: none;">
+							<div id="changeVariableToolChangeVariablePopupAddVarableDivContentHolder">
+								<label for="newVarName">Name:</label>
+  								<input type="text" name="newVarName"></br>
+								<label for="newVarType">Type:</label>
+  								<select type="text" name="newVarType">
+									<option value="number">number</option>
+									<option value="string">string</option>
+								</select></br>
+								<label for="newVarValue">Value:</label>
+  								<input type="text"name="newVarValue"></br>
+
+								  <button class="modal-action-button" id="changeVariableToolChangeVariablePopupAddVarableDivAddButton" onclick='changeVariableToolPopupAddClick()'>Add</button>
+								  <button class="modal-action-button" id="changeVariableToolChangeVariablePopupAddVarableDivCloseButton" onclick='document.getElementById("changeVariableToolChangeVariablePopupAddVarableDiv").style.display="none"'>Close</button>
+							</div>
+						</div>
+					</div>
+					<!-- <select class="side-section-content-item-input" id="removeChanger"
+						onchange="removeChangerFunction()">
+						<option value="1" selected>Remove single object</option>
+						<option value="2">Remove in radius</option>
+					</select>
+
+					<div class="side-section-content-item-section" id = "removeObjectChangerDiv" style="display: block;">
+						<select class="side-section-content-item-input" id="removeObjectChanger">
+						<option value="1" selected>Remove objects</option>
+						<option value="2">Remove units</option>
+					</select>
+					</div>
+
+					<div class="side-section-content-item-section" id = "removeObjectInRadiusDiv" style="display: none;">
+						<p class="side-section-content-item-section-title">Radius index:</p>
+						<input class="side-section-content-item-input" type="range" min="0" max="500" value="100"
+							id="remove_tool_radius" step="1" oninput="outputUpdate(value, 'remove_tool_radius')">
+						<br>
+						<output class="text-normal overlapping-margin-top" for="remove_tool_radius"
+							id="remove_tool_radius_output">100</output>
+					</div> -->
+				</div>
+
+				<div class="side-section-content-item" id="editExpresionsTool" style="display: none;">
+					<p class="side-section-content-item-title">Edit Expressions tool</p>
+					<table>
+						<tr>
+						  <th>Name</th>
+						  <th>Equasion</th>
+						</tr>
+						<tr id="editExpresionsToolRowToCopy" style="display: table-row;"> <!--display: table-row-->
+						  <td class="editExpresionsName">var1</td>
+						  <td class="editExpresionsEquasion">(asdf+asdf)</td>
+						</tr>
+					</table>
+
+					<button class="modal-action-button" onclick='document.getElementById("editExpresionsToolEditExpresionsPopup").style.display="flex"'>Change variables</button>
+
+					<div id="editExpresionsToolEditExpresionsPopup">
+						<button class="modal-action-button" id="editExpresionsToolEditExpresionsPopupCloseButton" onclick='document.getElementById("editExpresionsToolEditExpresionsPopup").style.display = "none"'>Close</button>
+					  
+						<div id="editExpresionsToolEditExpresionsPopupTableHolder">
+							<table>
+								<tr>
+									<th>Name</th>
+									<th>Equasion</th>
+									<th>Edit</th>
+									<th>Remove</th>
+								</tr>
+								<tr id="editExpresionsToolEditExpresionsPopupRowToCopy" style="display: none;">
+									<td class="editExpresionsName"><input type="text" value="var1"></td>
+									<td class="editExpresionsType">
+										<select class="editExpresionsType">
+										  <option value="number">number</option>
+										  <option value="string">string</option>
+									  </select>
+									</td>
+									<td class="editExpresionsValue"><input type="text" value="0"></td>
+									<td class="editExpresionsRemove"><button class="modal-action-button" onclick=''>Remove</button></td>
+								</tr>
+							</table>
+						</div>
+
+						<button class="modal-action-button" id="editExpresionsToolEditExpresionsPopupAddVarableButton" onclick='document.getElementById("editExpresionsToolEditExpresionsPopupAddVarableDiv").style.display="flex"'>Add Expresiion</button>
+						<button class="modal-action-button" id="editExpresionsToolEditExpresionsSaveButton" onclick='editExpresionsToolSaveButtonClick()'>Save changes</button>
+
+						<div id="editExpresionsToolEditExpresionsPopupAddVarableDiv" style="display: none;">
+							<div id="editExpresionsToolEditExpresionsPopupAddVarableDivContentHolder">
+								<label for="newVarName">Name:</label>
+  								<input type="text" name="newVarName"></br>
+								<label for="newVarType">Type:</label>
+  								<select type="text" name="newVarType">
+									<option value="number">number</option>
+									<option value="string">string</option>
+								</select></br>
+								<label for="newVarValue">Value:</label>
+  								<input type="text"name="newVarValue"></br>
+
+								  <button class="modal-action-button" id="editExpresionsToolEditExpresionsPopupAddVarableDivAddButton" onclick='editExpresionsToolPopupAddClick()'>Add</button>
+								  <button class="modal-action-button" id="editExpresionsToolEditExpresionsPopupAddVarableDivCloseButton" onclick='document.getElementById("editExpresionsToolEditExpresionsPopupAddVarableDiv").style.display="none"'>Close</button>
+							</div>
+						</div>
+					</div>
+					<!-- <select class="side-section-content-item-input" id="removeChanger"
+						onchange="removeChangerFunction()">
+						<option value="1" selected>Remove single object</option>
+						<option value="2">Remove in radius</option>
+					</select>
+
+					<div class="side-section-content-item-section" id = "removeObjectChangerDiv" style="display: block;">
+						<select class="side-section-content-item-input" id="removeObjectChanger">
+						<option value="1" selected>Remove objects</option>
+						<option value="2">Remove units</option>
+					</select>
+					</div>
+
+					<div class="side-section-content-item-section" id = "removeObjectInRadiusDiv" style="display: none;">
+						<p class="side-section-content-item-section-title">Radius index:</p>
+						<input class="side-section-content-item-input" type="range" min="0" max="500" value="100"
+							id="remove_tool_radius" step="1" oninput="outputUpdate(value, 'remove_tool_radius')">
+						<br>
+						<output class="text-normal overlapping-margin-top" for="remove_tool_radius"
+							id="remove_tool_radius_output">100</output>
+					</div> -->
+				</div>
+
+				<div class="side-section-content-item" id="inviteTool" style="display: none;">
+					<p class="side-section-content-item-title">Cluck on an object to generate link</p>
+					<input id="inviteToolLink" style="display: none;" type="text" class="modal-container-input"/>
+				</div>
+
+				<div class="side-section-content-item" id="toolButtons">
+					<button class="modal-action-button" onclick="toMapChoose()">Back</button>
+					<button class="modal-action-button" onclick="addEditor()">Add editor</button><br/>
+					<!--<button class="modal-action-button" onclick="onCreateMap()">Save</button>-->
+				</div>
+				
+				<input id="addEditorInput" style="display: none;" type="text" class="modal-container-input"/>
+			</div>
+		</div>
+		<div class="canvas-holder">
+			<canvas id="canvas"></canvas>
+		</div>
+	</div>
+
+	<div id="createGameRoomMenu" style="display: none;"> <!--defaut  inline-block-->
+		<button class="modal-action-button" onclick='toGameList()'>Back</button>
+		<div class="centered-content">
+			<div id="createGameMenuMap">
+				<div id="createGameMenuMapText">Map:</div>
+				<div id="createGameMenuMapName"></div>
+				<div id="createGameMenuMapContainer">
+					
+				</div>
+				<div class="createGameMenuMapItem" id="createGameMenuMapItemToClone" style="display: none;" onclick="selectCreateGameMenuMapItem(this.id)">Some Name</div>
+			</div>
+			<div id="createGameMenuPlayer">
+				<div id="createGameMenuPlayerText">Players:</div>
+				<div id="createGameMenuPlayerContainer">
+					
+				</div>
+				<div class="createGameMenuPlayerItem" id="createGameMenuPlayerItemToClone" style="display: none;">
+					<div class="createGameMenuPlayerItemName" onclick="gameMenuPlayerClick()">Some Name</div>
+					<button class="createGameMenuPlayerItemKick" onclick="createGameKickClick(this.parentElement.id)">Kick</button>
+					<button class="createGameMenuPlayerItemMakeHost" onclick="createGameHostClick(this.parentElement.id)">Host</button>
+				</div>
+				<div id="createGameMenuInvitePlayerHolder">
+					<button id="createGameMenuInvitePlayer">Invite Player</button>
+				</div>
+			</div>
+		</div>
+		<div id="createGameRoomStartHolder">
+			<button  id="createGameRoomStart">Start Game</button>
+		</div>
+
+		<div id="createGameRoomOnPlayerClick" style="display: absolute;">
+
+		</div>
+	</div>
+
+	<div id="joinGameRoomMenu" style="display: none;"> <!--defaut  inline-block-->
+		<button class="modal-action-button" onclick='toGameList()'>Back</button>
+		<div class="centered-content">
+			<div id="joinGameMenuMap">
+				<div id="joinGameMenuMapText">Map:</div>
+				<div id="joinGameMenuMapName"></div>
+				<div id="joinGameMenuMapContainer" style="display: none;">
+					<div class="joinGameMenuMapItem" id="joinGameMenuMapItemToClone" style="display: none;" onclick="selectCreateGameMenuMapItem(this.id)">Some Name</div>
+				</div>
+			</div>
+			<div id="joinGameMenuPlayer">
+				<div id="joinGameMenuPlayerText">Players:</div>
+				<div id="joinGameMenuPlayerContainer">
+					
+				</div>
+				<div class="joinGameMenuPlayerItem" id="joinGameMenuPlayerItemToClone" style="display: none;">
+					<div class="joinGameMenuPlayerItemName" onclick="gameMenuPlayerClick()">Some Name</div>
+					<button class="joinGameMenuPlayerItemAddFriend">Add Friend</button>
+				</div>
+				<div id="joinGameMenuInvitePlayerHolder">
+					<button id="joinGameMenuInvitePlayer">Invite Player</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="joinGameRoomOnPlayerClick" style="display: absolute;">
+
+		</div>
+	</div>
+
+	<div id="mapChoose" style="display: none;"> <!--defaut  inline-block-->
+		<button class="modal-action-button" onclick="toMainMenu()">Back</button>
+
+		<div id="mapChooseContainer">
+			<div  id="mapChooseContainerTextholder">
+				<div  id="mapChooseContainerText">
+					Choose a map to edit:
+				</div>
+				<button class="modal-action-button" id = "mapChooseContainerCreateRoomButton" onclick='switchMenus("#mapNameChoose", "inline-block");'>Create new map</button>
+			</div>
+			<div id="mapChooseContainerList">
+				<div id="mapChooseContainerListElementMapAndCreatorNameHolder">
+					<div class="mapChooseContainerListElementMapNameText">Map name: </div>
+					<div class="mapChooseContainerListElementCreatorNameText">Creator name: </div>
+					<div class="mapChooseContainerListElementEditText">Edit map: </div>
+					<div class="mapChooseContainerListElementDeleteText">Delete map: </div>
+				</div>
+				<div id="mapChooseContainerListElementsHolder">
+					
+				</div>
+				<div class="mapChooseContainerListElement" id="mapChooseContainerListElementCopy" style="display: none;">
+					<div class="mapChooseContainerListElementMapNameHolder">
+						<div class="mapChooseContainerListElementMapName">Some name</div>
+					</div>
+					<div class="mapChooseContainerListElementCreatorNameHolder">
+						<div class="mapChooseContainerListElementCreatorName">Some name</div>
+					</div>
+					<div class="mapChooseContainerListElementEditButtonHolder">
+						<button class="mapChooseContainerListElementButton" onclick="chooseMapEditClick(this)">Edit</button>
+					</div>
+					<div class="mapChooseContainerListElementDeleteButtonHolder">
+						<button class="mapChooseContainerListElementButton" onclick="mapListDeleteMapClick(this)">Delete</button>
+					</div>
+				</div>
+
+				<div class="mapChooseContainerListElement" id="mapChooseContainerListElementCopy_" style="display: none;">
+					<div class="mapChooseContainerListElementMapNameHolder">
+						<div class="mapChooseContainerListElementMapName">Some name</div>
+					</div>
+					<div class="mapChooseContainerListElementCreatorNameHolder">
+						<div class="mapChooseContainerListElementCreatorName">Some name</div>
+					</div>
+					<div class="mapChooseContainerListElementEditButtonHolder">
+						<button class="mapChooseContainerListElementButton" onclick="mapListPreviewMapClick(this, 1)">Preview</button>
+					</div>
+					<div class="mapChooseContainerListElementDeleteButtonHolder">
+						<button class="mapChooseContainerListElementButton" onclick="mapListRemoveMapClick(this)">Remove</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="gameList" style="display: none;"> <!--defaut  inline-block-->
+		<button class="modal-action-button" onclick="toMainMenu()">Back</button>
+
+		<div id="gameListContainer">
+			<div  id="gameListContainerTextholder">
+				<div  id="gameListContainerText">
+					Choose a game:
+				</div>
+				<button class="modal-action-button" id = "gameListContainerCreateRoomButton" onclick="hostGameClick()">Host game</button>
+			</div>
+			<div id="gameListContainerList">
+				<div id="gameListContainerListElementMapAndHostNameHolder">
+					<div class="gameListContainerListElementMapNameText">Map: </div>
+					<div class="gameListContainerListElementHostNameText">Host: </div>
+					<div class="gameListContainerListElementJoinText">Join: </div>
+				</div>
+				<div id="gameListContainerListElementsHolder">
+					
+				</div>
+
+				<div class="gameListContainerListElement" id="gameListContainerListElementCopy" style="display: none;">
+					<div class="gameListContainerListElementMapNameHolder">
+						<div class="gameListContainerListElementMapName">Some name</div>
+					</div>
+					<div class="gameListContainerListElementHostNameHolder">
+						<div class="gameListContainerListElementHostName">Some name</div>
+					</div>
+					<div class="gameListContainerListElementButtonHolder">
+						<button class="gameListContainerListElementButton" onclick="gameListElementClick(this)">Join game</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="mapList" style="display: none;"> <!--defaut  inline-block-->
+		<button class="modal-action-button" onclick="toMainMenu()">Back</button>
+
+		<div id="mapListContainer">
+			<div  id="mapListContainerTextholder">
+				<div  id="mapListContainerText">
+					Choose a map:
+				</div>
+				<button class="modal-action-button" id = "mapListContainerCreateRoomButton" onclick="toMapChoose()">To my maps</button>
+			</div>
+			<div id="mapListContainerList">
+				<div id="mapListContainerListElementMapAndCreatorNameHolder">
+					<div class="mapListContainerListElementMapNameText">Map name: </div>
+					<div class="mapListContainerListElementCreatorNameText">Creator name: </div>
+					<div class="mapListContainerListElementJoinText">Save map: </div>
+					<div class="mapListContainerListElementPreviewText">Preview map: </div>
+				</div>
+				<div id="mapListContainerListElementsHolder">
+					
+				</div>
+				<div class="mapListContainerListElement" id="mapListContainerListElementCopy" style="display: none;">
+					<div class="mapListContainerListElementMapNameHolder">
+						<div class="mapListContainerListElementMapName">Some name</div>
+					</div>
+					<div class="mapListContainerListElementCreatorNameHolder">
+						<div class="mapListContainerListElementCreatorName">Some name</div>
+					</div>
+					<div class="mapListContainerListElementSaveButtonHolder">
+						<button class="mapListContainerListElementButton" onclick="mapListSaveMapClick(this)">Save</button>
+					</div>
+					<div class="mapListContainerListElementPreviewButtonHolder">
+						<button class="mapListContainerListElementButton" onclick="mapListPreviewMapClick(this, 2)">Preview</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="require.js"></script>
+	<script type="text/javascript" src="babylon.max.js"></script>
+	<script type="text/javascript" src="structures.js"></script>
+	<script type="text/javascript" src="localData.js"></script>
+	<script type="text/javascript">window.exports = {};</script>
+	<script type="text/javascript" src="additionalFunctions_Variables.js"></script>
+	<script type="text/javascript">window.additionalFunctions = exports;</script>
+	<script type="text/javascript" src="map_edit.js"></script>
+	<script type="text/javascript" src="shaders.js"></script>
+	<script type="text/javascript" src="FreeCamera.js"></script>
+	<script type="text/javascript" src="ArcRotateCamera.js"></script>
+	<script type="text/javascript" src="units.js"></script>
+	<script type="text/javascript" src="map.js"></script>
+	<script type="text/javascript" src="objects.js"></script>
+	<script type="text/javascript" src="engineSetup.js"></script>
+	<script type="text/javascript" src="materialLibrary.js"></script>
+	<script type="text/javascript" src="htmlFunctions.js"></script>
+	<script type="text/javascript" src="optimization.js"></script>
+	<script>
+		window.addEventListener('load', function () {
+			require(["babylonjs"], function(BABYLON){
+				window.BABYLON = BABYLON;
+
+				/*let map = new Map();
+				map.name = "asdf";
+				document.getElementById("register").style.display = "none";
+				document.getElementsByClassName("map-edit-div")[0].style.display = "flex";
+				mapEdit.startMapEditing(map);*/
+			});
+		})
+	</script>
+</body>
+
+</html>
